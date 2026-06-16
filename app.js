@@ -7,8 +7,7 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const { default: mongoose } = require('mongoose');
 const multer = require('multer');
-const DB_PATH = "mongodb+srv://adarshmaurya:Golu@completecoding.cd0svek.mongodb.net/?retryWrites=true&w=majority&appName=CompleteCoding";
-
+const DB_PATH = "mongodb+srv://adarshmauryain_db_user:ODU7ppRRFwK436zu@cluster0.dyyixhw.mongodb.net/staynest?retryWrites=true&w=majority&appName=Cluster0";
 //Local Module
 const storeRouter = require("./routes/storeRouter")
 const hostRouter = require("./routes/hostRouter")
@@ -56,7 +55,7 @@ const multerOptions = {
   storage, fileFilter
 };
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(multer(multerOptions).single('photo'));
 app.use(express.static(path.join(rootDir, 'public')))
 app.use("/uploads", express.static(path.join(rootDir, 'uploads')))
